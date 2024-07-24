@@ -11,7 +11,7 @@ const TodaysClass: FC<TodaysClassProps> = ({ }) => {
   return (
     <div className="bg-background rounded-lg shadow-lg p-6 sm:p-8">
       <div className="flex flex-col items-center justify-center gap-4">
-        <h1 className="text-2xl font-bold">Join Today's Class</h1>
+        <h1 className="text-2xl font-bold">Join Today&apos;s Class</h1>
         <div className="flex items-center justify-between w-full">
           <span>Select your batch:</span>
           <Select>
