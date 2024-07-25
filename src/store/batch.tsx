@@ -1,3 +1,5 @@
+'use client'
+
 import { Batch } from "@/types/class";
 import { create } from 'zustand'
 

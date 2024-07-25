@@ -1,3 +1,5 @@
+'use client'
+
 import { intToDay } from '@/lib/utils'
 import { Batch, Class } from '@/types/class'
 import { create } from 'zustand'
