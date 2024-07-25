@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { buttonVariants } from "@/components/ui/button"
-import { convertTo12HourTime, intToDay, intToMonth } from '@/lib/utils';
+import { convertTo12HourTime, getIST, intToDay, intToMonth } from '@/lib/utils';
 import Link from 'next/link';
 import { Class } from '@/types/class';
 
@@ -29,9 +29,9 @@ const ScheduleCard: FC<ScheduleCardProps> = ({
           <div>
             <div className="font-semibold">{`${teacherName}`}</div>
             <div className="text-muted-foreground">{
-              `${convertTo12HourTime(startTime.getHours(), startTime.getMinutes())}
+              `${getIST(startTime)}
                - 
-               ${convertTo12HourTime(endTime.getHours(), endTime.getMinutes())}`
+               ${getIST(endTime)}`
             }</div>
           </div>
           <Link className={buttonVariants({ variant: "outline" })} href={link}>

@@ -94,3 +94,14 @@ export const getNextDayOfWeek = (dayOfWeek: number): Date => {
   nextDay.setDate(today.getDate() + diff);
   return nextDay;
 }
+
+export const getIST = (time: Date) => {
+  const options: Intl.DateTimeFormatOptions = {
+    timeZone: 'Asia/Kolkata',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+  };
+
+  return new Intl.DateTimeFormat('en-US', options).format(time);
+}
