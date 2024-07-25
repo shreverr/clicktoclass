@@ -97,7 +97,7 @@ export const getNextDayOfWeek = (dayOfWeek: number): Date => {
 
 export const getIST = (time: Date) => {
   const options: Intl.DateTimeFormatOptions = {
-    timeZone: 'Asia/Kolkata',
+    timeZone: 'UTC',
     hour: '2-digit',
     minute: '2-digit',
     hour12: true
