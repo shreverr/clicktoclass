@@ -1,13 +1,19 @@
+'use client'
 import { FC } from 'react'
 import { ArrowRight } from "lucide-react"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 import { Button } from '../ui/button'
+import { Class } from '@/types/class'
+import { useClassesStore } from '@/store/class'
 
 interface TodaysClassProps {
-
+  classes: Class[]
 }
 
-const TodaysClass: FC<TodaysClassProps> = ({ }) => {
+const TodaysClass: FC<TodaysClassProps> = ({ classes }) => {
+  const setClass = useClassesStore((state) => state.setClasses);
+  setClass(classes);
+
   return (
     <div className="bg-background rounded-lg shadow-lg p-6 sm:p-8">
       <div className="flex flex-col items-center justify-center gap-4">

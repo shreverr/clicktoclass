@@ -11,11 +11,13 @@ const WeeklySchedule: FC<WeeklyScheduleProps> = ({ }) => {
       <div className="grid gap-4">
         <h2 className="text-xl font-bold">This Week&apos;s Schedule</h2>
         <div className="grid gap-4">
-          <ScheduleCard
-            classStartDate={new Date('July 25, 08 18:20')}
-            classEndTime={new Date('July 25, 08 20:20')}
-            className='Kumar Gaurav'
-            classLink={`/`} />
+          {/* <ScheduleCard
+            startDate={new Date('July 25, 08 18:20')}
+            startTime={new Date('July 25, 08 18:20')}
+            endTime={new Date('July 25, 08 20:20')}
+            teacherName='Kumar Gaurav'
+            day='Monday'
+            link={`/`} /> */}
         </div>
       </div>
     </div>

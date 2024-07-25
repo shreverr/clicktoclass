@@ -64,3 +64,24 @@ export const convertTo12HourTime = (hour: number, minute: number): string => {
   const formattedMinute = minute < 10 ? '0' + minute : minute.toString();
   return `${formattedHour}:${formattedMinute} ${period}`;
 }
+
+export const convertToDateObject = (timeString: string) => {
+  const [time, modifier] = timeString.split(' ');
+
+  let [hours, minutes] = time.split(':');
+  minutes = minutes ? minutes : '00'; // If no minutes are provided, default to '00'
+
+  if (modifier === 'PM' && hours !== '12') {
+    hours = (parseInt(hours, 10) + 12).toString();
+  } else if (modifier === 'AM' && hours === '12') {
+    hours = '00';
+  }
+
+  const date = new Date();
+  date.setHours(parseInt(hours, 10));
+  date.setMinutes(parseInt(minutes, 10));
+  date.setSeconds(0);
+  date.setMilliseconds(0);
+
+  return date;
+}

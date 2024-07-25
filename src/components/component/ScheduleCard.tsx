@@ -3,38 +3,38 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { buttonVariants } from "@/components/ui/button"
 import { convertTo12HourTime, intToDay, intToMonth } from '@/lib/utils';
 import Link from 'next/link';
+import { Class } from '@/types/class';
 
-interface ScheduleCardProps {
-  classStartDate: Date;
-  className: string;
-  classEndTime: Date;
-  classLink: string;
+interface ScheduleCardProps extends Class {
+
 }
 
 const ScheduleCard: FC<ScheduleCardProps> = ({
-  classStartDate,
-  className,
-  classEndTime,
-  classLink
+  day,
+  startDate,
+  startTime,
+  endTime,
+  link,
+  teacherName,
 }) => {
   return (
     <Card>
       <CardHeader>
         <CardTitle>{
-          `${intToDay(classStartDate.getDay())}, ${intToMonth(classStartDate.getMonth())} ${classStartDate.getDate()}`
+          `${day}, ${intToMonth(startDate.getMonth())} ${startDate.getDate()}`
         }</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="flex items-center justify-between">
           <div>
-            <div className="font-semibold">{`${className}`}</div>
+            <div className="font-semibold">{`${teacherName}`}</div>
             <div className="text-muted-foreground">{
-              `${convertTo12HourTime(classStartDate.getHours(), classStartDate.getMinutes())}
+              `${convertTo12HourTime(startTime.getHours(), startTime.getMinutes())}
                - 
-               ${convertTo12HourTime(classEndTime.getHours(), classEndTime.getMinutes())}`
+               ${convertTo12HourTime(endTime.getHours(), endTime.getMinutes())}`
             }</div>
           </div>
-          <Link className={buttonVariants({ variant: "outline" })} href={classLink}>
+          <Link className={buttonVariants({ variant: "outline" })} href={link}>
             Join
           </Link>
         </div>
