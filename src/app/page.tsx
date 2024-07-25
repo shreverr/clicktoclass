@@ -1,6 +1,6 @@
 import TodaysClass from "@/components/component/TodaysClass";
 import WeeklySchedule from "@/components/component/WeeklySchedule";
-import { convertToDateObject, intToDay } from "@/lib/utils";
+import { convertToDateObject, getNextDayOfWeek, intToDay } from "@/lib/utils";
 import { Class } from "@/types/class";
 import axios from "axios";
 
@@ -19,7 +19,7 @@ const getClasses = async () : Promise<Class[]> => {
     data.forEach((row: any, index: number) => {
       const temp = {
         day: intToDay(parseInt(row[0])),
-        startDate: convertToDateObject(row[1]),
+        startDate: getNextDayOfWeek(row[0]),
         startTime: convertToDateObject(row[1]),
         endTime: convertToDateObject(row[2]),
         link: row[3],

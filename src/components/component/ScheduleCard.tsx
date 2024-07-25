@@ -5,7 +5,7 @@ import { convertTo12HourTime, intToDay, intToMonth } from '@/lib/utils';
 import Link from 'next/link';
 import { Class } from '@/types/class';
 
-interface ScheduleCardProps extends Class {
+interface ScheduleCardProps extends Omit<Class, 'forGroupA' | 'forGroupB'>  {
 
 }
 

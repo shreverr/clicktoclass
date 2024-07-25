@@ -85,3 +85,13 @@ export const convertToDateObject = (timeString: string) => {
 
   return date;
 }
+
+export const getNextDayOfWeek = (dayOfWeek: number): Date => {
+  const today = new Date();
+  const day = today.getDay();
+  const diff = ((dayOfWeek + 7) - day) % 7;
+  const nextDay = new Date(today);
+  nextDay.setDate(today.getDate() + diff);
+  // console.log(dayOfWeek,diff, nextDay);
+  return nextDay;
+}
