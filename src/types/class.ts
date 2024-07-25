@@ -8,3 +8,5 @@ export type Class = {
   forGroupA: boolean  
   forGroupB: boolean 
 }
+
+export type Batch = 'A' | 'B'
