@@ -1,7 +1,6 @@
 import TodaysClass from "@/components/component/TodaysClass";
 import WeeklySchedule from "@/components/component/WeeklySchedule";
 
-
 export default function Home() {
   return (
     <main className="flex-col min-h-screen items-center justify-start ">

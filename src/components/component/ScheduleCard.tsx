@@ -1,27 +1,42 @@
 import { FC } from 'react'
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-
+import { buttonVariants } from "@/components/ui/button"
+import { convertTo12HourTime, intToDay, intToMonth } from '@/lib/utils';
+import Link from 'next/link';
 
 interface ScheduleCardProps {
-
+  classStartDate: Date;
+  className: string;
+  classEndTime: Date;
+  classLink: string;
 }
 
-const ScheduleCard: FC<ScheduleCardProps> = ({ }) => {
+const ScheduleCard: FC<ScheduleCardProps> = ({
+  classStartDate,
+  className,
+  classEndTime,
+  classLink
+}) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Monday, July 24</CardTitle>
+        <CardTitle>{
+          `${intToDay(classStartDate.getDay())}, ${intToMonth(classStartDate.getMonth())} ${classStartDate.getDate()}`
+        }</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="flex items-center justify-between">
           <div>
-            <div className="font-semibold">Introduction to React</div>
-            <div className="text-muted-foreground">10:00 AM - 12:00 PM</div>
+            <div className="font-semibold">{`${className}`}</div>
+            <div className="text-muted-foreground">{
+              `${convertTo12HourTime(classStartDate.getHours(), classStartDate.getMinutes())}
+               - 
+               ${convertTo12HourTime(classEndTime.getHours(), classEndTime.getMinutes())}`
+            }</div>
           </div>
-          <Button variant="outline" size="sm">
+          <Link className={buttonVariants({ variant: "outline" })} href={classLink}>
             Join
-          </Button>
+          </Link>
         </div>
       </CardContent>
     </Card>
