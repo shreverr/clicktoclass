@@ -65,7 +65,7 @@ export const convertTo12HourTime = (hour: number, minute: number): string => {
   return `${formattedHour}:${formattedMinute} ${period}`;
 }
 
-export const convertToDateObject = (timeString: string) => {
+export const convertToDateObject = (timeString: string, dateToSet: Date = new Date()) => {
   const [time, modifier] = timeString.split(' ');
 
   let [hours, minutes] = time.split(':');
@@ -82,6 +82,7 @@ export const convertToDateObject = (timeString: string) => {
   date.setMinutes(parseInt(minutes, 10));
   date.setSeconds(0);
   date.setMilliseconds(0);
+  date.setDate(dateToSet.getDate()); 
 
   return date;
 }
