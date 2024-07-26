@@ -14,7 +14,7 @@ const Footer: FC<FooterProps> = ({ }) => {
         {`Made with ❤️ by `}
         <Link
           href='https://github.com/shreverr'
-          className={cn([buttonVariants({ variant: 'link' }),  'px-0'])}
+          className={cn([buttonVariants({ variant: 'link' }),  'px-0 underline'])}
         >
           Shreverr
         </Link>
