@@ -15,29 +15,32 @@ export default function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      let classes: Class[] = []
-      let data = (await axios.get('/api/v1/classes')).data.values
+      try {
+        let classes: Class[] = []
+        let data = (await axios.get('/api/v1/classes')).data.values
 
-      data.forEach((row: any, index: number) => {
-        const startDate = getNextDayOfWeek(row[0])
-        const temp = {
-          day: intToDay(parseInt(row[0])),
-          startDate: startDate,
-          startTime: convertToDateObject(row[1], startDate),
-          endTime: convertToDateObject(row[2]),
-          link: row[3],
-          forGroupA: row[4] === 'TRUE' ? true : false,
-          forGroupB: row[5] === 'TRUE' ? true : false,
-          teacherName: row[6]
-        }
+        data.forEach((row: any, index: number) => {
+          const startDate = getNextDayOfWeek(row[0])
+          const temp = {
+            day: intToDay(parseInt(row[0])),
+            startDate: startDate,
+            startTime: convertToDateObject(row[1], startDate),
+            endTime: convertToDateObject(row[2]),
+            link: row[3],
+            forGroupA: row[4] === 'TRUE' ? true : false,
+            forGroupB: row[5] === 'TRUE' ? true : false,
+            teacherName: row[6]
+          }
+          classes.push(temp)
+        })
 
-        classes.push(temp)
-      })
-      setClasses(classes);
+        setClasses(classes);
+      } catch (error) {
+        console.log(error);
+      }
     }
 
     fetchData();
-    console.log(classes);
   }, [])
 
   return (

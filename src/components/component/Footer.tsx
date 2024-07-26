@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { FC } from 'react'
 import { buttonVariants } from '../ui/button'
+import { cn } from '@/lib/utils'
 
 interface FooterProps {
 
@@ -13,12 +14,13 @@ const Footer: FC<FooterProps> = ({ }) => {
         {`Made with ❤️ by `}
         <Link
           href='https://github.com/shreverr'
-          className={buttonVariants({ variant: 'link' }) + ' px-0'}
+          className={cn([buttonVariants({ variant: 'link' }),  'px-0'])}
         >
           Shreverr
         </Link>
       </div>
-    </footer>)
+    </footer>
+  )
 }
 
 export default Footer
