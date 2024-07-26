@@ -1,0 +1,27 @@
+{
+  "name": "Click To Class",
+  "short_name": "ClickToClass",
+  "icons": [
+    {
+      "src": "/icon.ico",
+      "sizes": "192x192",
+      "type": "image/x-icon"
+    },
+
+    {
+      "src": "/icon256.ico",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}
