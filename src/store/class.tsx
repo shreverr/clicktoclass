@@ -12,6 +12,7 @@ interface ClassesActions {
   setClasses: (newClasses: Class[]) => void
   getTodaysClass: (batch: Batch) => Class | undefined
   getClassListByBatch: (batch: Batch) => Class[] | undefined
+  getAllClassTimesByBatch: (batch: Batch) => Date[]
 }
 
 export const useClassesStore = create<ClassesState & ClassesActions>((set) => ({
@@ -40,5 +41,13 @@ export const useClassesStore = create<ClassesState & ClassesActions>((set) => ({
     return (classes.filter((cls) => (
       (batch === 'A' ? cls.forGroupA : cls.forGroupB)
     ))).sort((a, b) => a.startDate.getTime() - b.startDate.getTime())
+  },
+
+  getAllClassTimesByBatch: (batch: Batch): Date[] => {
+    const classListByBatch: Class[] = useClassesStore
+      .getState().
+      getClassListByBatch(batch) || []
+
+    return classListByBatch.map((cls) => cls.startTime)
   }
 }))

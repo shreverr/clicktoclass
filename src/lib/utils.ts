@@ -82,7 +82,7 @@ export const convertToDateObject = (timeString: string, dateToSet: Date = new Da
   date.setMinutes(parseInt(minutes, 10));
   date.setSeconds(0);
   date.setMilliseconds(0);
-  date.setDate(dateToSet.getDate()); 
+  date.setDate(dateToSet.getDate());
 
   return date;
 }

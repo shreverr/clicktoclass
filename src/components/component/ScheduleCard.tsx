@@ -36,7 +36,7 @@ const ScheduleCard: FC<ScheduleCardProps> = ({
                ${getIST(endTime)}`
             }</div>
           </div>
-          <Link className={buttonVariants({ variant: "outline" })} href={link}>
+          <Link className={buttonVariants({ variant: "outline" })} href={link} prefetch={false} target='_blank'>
             Join
           </Link>
         </div>

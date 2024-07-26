@@ -36,6 +36,7 @@ export default function Home() {
     }
 
     fetchData();
+    console.log(classes);
   }, [])
 
   return (

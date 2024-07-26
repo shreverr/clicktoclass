@@ -3,10 +3,10 @@ import { FC, useEffect } from 'react'
 import { ArrowRight } from "lucide-react"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 import { Button, buttonVariants } from '../ui/button'
-import { Class } from '@/types/class'
 import { useClassesStore } from '@/store/class'
 import Link from 'next/link'
 import { useBatchStore } from '@/store/batch'
+
 
 interface TodaysClassProps {
 }
@@ -55,7 +55,10 @@ const TodaysClass: FC<TodaysClassProps> = () => {
           todaysClass ? (
             <Link
               className={buttonVariants({ variant: "default" }) + ' w-full'}
-              href={todaysClass!.link}>
+              href={todaysClass!.link}
+              prefetch={false}
+              target="_blank"
+              >
               <div className="flex items-center justify-between w-full">
                 <span>{`Join with Instructor ${todaysClass?.teacherName}`}</span>
                 <ArrowRight className="w-5 h-5" />
