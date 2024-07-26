@@ -1,5 +1,5 @@
 'use client'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { ArrowRight } from "lucide-react"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 import { Button, buttonVariants } from '../ui/button'
@@ -11,13 +11,28 @@ import { useBatchStore } from '@/store/batch'
 interface TodaysClassProps {
 }
 
+const createBatchInLocalStorageIfNotExists = () => {
+  if (!localStorage.getItem('batch')) {
+    localStorage.setItem('batch', 'A');
+  }
+}
+
 const TodaysClass: FC<TodaysClassProps> = () => {
   const batch = useBatchStore((state) => state.batch);
   const todaysClass = useClassesStore((state) => state.getTodaysClass(batch));
   const setBatch = useBatchStore((state) => state.setBatch);
+
+  useEffect(() => {
+    createBatchInLocalStorageIfNotExists()
+    const batch = localStorage.getItem('batch');
+    if(batch) {
+      setBatch(batch as 'A' | 'B');
+    }
+  }, [])
   
   const handleBatchChange = (batch: string) => {
     setBatch(batch as 'A' | 'B');
+    localStorage.setItem('batch', batch);
   }
 
   return (
