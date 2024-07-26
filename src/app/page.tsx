@@ -1,5 +1,6 @@
 "use client"
 
+import Footer from "@/components/component/Footer";
 import TodaysClass from "@/components/component/TodaysClass";
 import WeeklySchedule from "@/components/component/WeeklySchedule";
 import { convertToDateObject, getNextDayOfWeek, intToDay } from "@/lib/utils";
@@ -45,6 +46,7 @@ export default function Home() {
         <div className="grid gap-8">
           <TodaysClass />
           <WeeklySchedule />
+          <Footer />
         </div>
       </div>
     </main>
