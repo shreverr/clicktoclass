@@ -9,13 +9,9 @@ import Link from 'next/link'
 import { useBatchStore } from '@/store/batch'
 
 interface TodaysClassProps {
-  classes: Class[]
 }
 
-const TodaysClass: FC<TodaysClassProps> = ({ classes }) => {
-  const setClass = useClassesStore((state) => state.setClasses);
-  setClass(classes);
-
+const TodaysClass: FC<TodaysClassProps> = () => {
   const batch = useBatchStore((state) => state.batch);
   const todaysClass = useClassesStore((state) => state.getTodaysClass(batch));
   const setBatch = useBatchStore((state) => state.setBatch);
@@ -25,7 +21,7 @@ const TodaysClass: FC<TodaysClassProps> = ({ classes }) => {
   }
 
   return (
-    <div className="bg-background rounded-lg shadow-lg p-6 sm:p-8">
+      <div className="bg-background rounded-lg shadow-lg p-6 sm:p-8">
       <div className="flex flex-col items-center justify-center gap-4">
         <h1 className="text-2xl font-bold">Join Today&apos;s Class</h1>
         <div className="flex items-center justify-between w-full">
