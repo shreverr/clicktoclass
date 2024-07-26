@@ -1,3 +1,5 @@
+'use client'
+
 import TodaysClass from "@/components/component/TodaysClass";
 import WeeklySchedule from "@/components/component/WeeklySchedule";
 import { convertToDateObject, getNextDayOfWeek, intToDay } from "@/lib/utils";
