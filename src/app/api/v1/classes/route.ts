@@ -1,5 +1,7 @@
 import axios from "axios";
 
+export const revalidate = 0;
+
 export async function GET() {
   try {
     const sheetId = process.env.TIME_TABLE_SHEET_ID;
