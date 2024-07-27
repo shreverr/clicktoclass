@@ -9,6 +9,7 @@ export async function GET() {
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`
 
     const values = (await axios.get(url)).data.values;
+    console.log('fetched sheets data', values);
 
     return Response.json({ status: 'Success', values });
   } catch (error) {
